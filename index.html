@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playbook Edição AUVP Escola</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   PLAYBOOK AUVP — ELEMENTOS EDITÁVEIS
+   Mesma identidade dos playbooks de Campanhas e Edição.
+   ============================================================ */
+:root{
+  --preto:#000000;
+  --verde-escuro:#03261A;
+  --verde-card:rgba(10,46,32,.55);
+  --amarelo:#FEC132;
+  --branco:#FFFFFF;
+  --branco-suave:#E8E8E8;
+  --tracking-titulo:.22em;
+  --tracking-eyebrow:.32em;
+  --pad-lado:6%;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Montserrat',system-ui,sans-serif;
+  background:#0b0b0b;color:var(--branco);
+  display:flex;flex-direction:column;align-items:center;gap:24px;padding:24px;
+}
+.slide{
+  position:relative;width:min(1200px,96vw);aspect-ratio:16/9;overflow:visible;
+  background:radial-gradient(120% 100% at 30% 90%, rgba(6,60,32,.9) 0%, rgba(3,30,18,.6) 35%, #000 78%);
+  border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,.5);
+  padding:5% var(--pad-lado);display:flex;flex-direction:column;
+}
+.pg-header{display:flex;justify-content:space-between;align-items:baseline}
+.eyebrow{color:var(--amarelo);font-weight:800;font-size:1.1rem;letter-spacing:var(--tracking-eyebrow);text-transform:uppercase}
+.pg-num{color:var(--amarelo);font-weight:800;font-size:1.1rem;letter-spacing:.2em}
+.section-title{color:var(--branco);font-weight:700;font-size:1.55rem;letter-spacing:var(--tracking-titulo);text-transform:uppercase;margin-top:3.5%;margin-bottom:.9rem}
+.lead{color:var(--branco-suave);font-weight:500;font-size:1rem;line-height:1.5}
+.lead.wide{max-width:100%}
+
+/* ---------- Preview: GIF à esquerda + explicação à direita ---------- */
+.preview-body{display:flex;gap:2.5rem;align-items:center;flex:1;margin-top:2%}
+.preview-media{
+  flex:0 0 56%;border-radius:10px;overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.18);
+  box-shadow:0 0 30px rgba(20,120,60,.25);background:#000;
+}
+.preview-media img,.preview-media video{width:100%;display:block}
+.preview-text{flex:1}
+.preview-text p{color:var(--branco-suave);font-weight:500;font-size:1.02rem;line-height:1.55}
+
+/* ---------- Capa ---------- */
+.slide.cover{flex-direction:row;align-items:center;gap:6%;
+  background:radial-gradient(120% 120% at 20% 60%, rgba(6,60,32,.85) 0%, rgba(3,25,15,.5) 40%, #000 80%)}
+.cover .brand{flex:0 0 42%}
+.cover .brand h1{color:var(--amarelo);font-weight:900;font-size:3rem;letter-spacing:.14em;line-height:1}
+.cover .brand .cat{color:var(--branco);font-weight:700;font-size:1.15rem;letter-spacing:.32em;margin-top:.5rem}
+.cover .brand .logo{margin-top:2rem}
+.cover .brand .logo img{height:52px;width:auto;display:block}
+.cover .intro{flex:1;color:var(--branco);font-weight:600;font-size:1.1rem;line-height:1.6}
+
+/* ---------- Slide de nota (destaque) ---------- */
+.slide.note{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:5%;
+  background:radial-gradient(120% 120% at 50% 50%, rgba(6,50,30,.7) 0%, #041a10 60%, #000 100%)}
+.note .note-title{color:var(--amarelo);font-weight:800;font-size:1.1rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1.4rem}
+.note p{color:var(--branco);font-weight:500;font-size:1.2rem;line-height:1.7;max-width:78%}
+.note p strong{color:var(--amarelo)}
+
+/* ---------- Páginas de PROMPT ---------- */
+.slide.prompt{overflow:visible}
+.prompt-body{display:flex;gap:2rem;flex:1;margin-top:2%;min-height:0}
+.prompt-col{flex:1;display:flex;flex-direction:column;min-height:0}
+.prompt-aside{flex:0 0 34%;display:flex;flex-direction:column;gap:1rem;min-height:0}
+.prompt-aside .aside-img{
+  border-radius:10px;overflow:hidden;border:1.5px solid rgba(255,255,255,.15);
+  box-shadow:0 0 30px rgba(20,120,60,.22);background:#111;
+  flex:0 0 auto;
+}
+.prompt-aside .aside-img img{width:100%;height:auto;display:block;object-fit:contain}
+.prompt-aside .aside-note{color:var(--branco-suave);font-size:.9rem;line-height:1.5;text-align:left}
+.prompt-aside .aside-note strong{color:var(--amarelo)}
+
+.code-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.code-head .lbl{color:var(--amarelo);font-weight:800;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase}
+.copy-btn{
+  background:var(--amarelo);color:#111;border:none;cursor:pointer;
+  font-family:inherit;font-weight:700;font-size:.8rem;letter-spacing:.04em;
+  padding:.45rem .9rem;border-radius:6px;transition:opacity .15s, background .15s;
+}
+.copy-btn:hover{opacity:.85}
+.copy-btn.copied{background:#7bd88f}
+.code-box{
+  flex:1;min-height:0;overflow:auto;text-align:left;
+  background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12);border-radius:8px;
+  padding:1rem 1.1rem;
+  font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  font-size:.72rem;line-height:1.5;color:#dfe6df;white-space:pre-wrap;
+}
+.code-box::-webkit-scrollbar{width:8px}
+.code-box::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:4px}
+
+/* ---------- Botão "Acessar materiais" ---------- */
+.materials-btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--amarelo);color:#111;text-decoration:none;
+  font-weight:700;font-size:1rem;letter-spacing:.02em;
+  padding:.85rem 1.6rem;border-radius:999px;
+  box-shadow:0 6px 20px rgba(254,193,50,.28);
+  transition:transform .15s, box-shadow .15s, background .15s;
+}
+.materials-btn:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(254,193,50,.4);background:#ffcf4d}
+.materials-btn::before{
+  content:"";width:20px;height:20px;flex:0 0 20px;
+  background:#111;-webkit-mask:no-repeat center/contain;mask:no-repeat center/contain;
+  /* ícone de pasta */
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M10 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z'/%3E%3C/svg%3E");
+}
+.note .materials-btn{margin-top:2rem}
+.note-shot{
+  margin-top:1.6rem;width:100%;border-radius:8px;overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.15);
+  box-shadow:0 0 30px rgba(20,120,60,.22);background:#1e1e1e;
+}
+.note-shot img{width:100%;display:block}
+.note-shot-cap{color:var(--branco-suave);font-size:.85rem;line-height:1.4;margin-top:.6rem;text-align:left}
+.closing .materials-btn{margin-top:2.2rem}
+
+/* ---------- Encerramento ---------- */
+.slide.closing{align-items:center;justify-content:center;
+  background:radial-gradient(120% 120% at 50% 50%, rgba(6,50,30,.7) 0%, #041a10 60%, #000 100%)}
+.closing .logo img{height:100px;width:auto;display:block}
+
+@media(max-width:760px){
+  .preview-body{flex-direction:column;gap:1.2rem}
+  .preview-media{flex:none;width:100%}
+  .cover{flex-direction:column;text-align:center}
+  .note p{max-width:100%}
+  .slide{aspect-ratio:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<section class="slide cover">
+  <div class="brand">
+    <h1>PLAYBOOK</h1>
+    <div class="cat">EDIÇÃO — AUVP ESCOLA</div>
+    <div class="logo"><img src="assets/auvp-logo.png" alt="AUVP"></div>
+  </div>
+  <p class="intro">
+    Ahoy marújo, aqui estão os elementos gráficos disponíveis para suas edições.
+    Cada preview mostra um template pronto para uso. Leia com atenção e embarque
+    nesse navio de aprendizado.
+  </p>
+</section>
+
+<!-- NOTA GERAL -->
+<section class="slide note">
+  <div class="note-title">Como usar</div>
+  <p>
+    Esses elementos estão disponíveis como <strong>projeto editável no Premiere</strong>.
+    Dentro do projeto, tudo estará dividido em pastas com elementos e sequências, cada
+    um descrito com o que é. Você pode usar esses <strong>“templates”</strong> como base
+    para editar o seu material.
+  </p>
+  <div class="note-shot"><img src="assets/premiere-projeto-timeline.png" alt="Gerenciador de projeto e timeline no Premiere"></div>
+  <p class="note-shot-cap">Organização do projeto no Premiere: pastas de sequências, arquivos e MOVs (à esquerda) e a timeline com os elementos e sequências (à direita).</p>
+  <a class="materials-btn" href="https://drive.google.com/drive/folders/1U8QsqP05GXN6E3txdffQwwBLE8LmKbBT?usp=sharing" target="_blank" rel="noopener">Clique aqui para acessar os materiais</a>
+</section>
+
+<!-- PREVIEW 001 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">01</span></div>
+  <h2 class="section-title">Citação</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_001.mp4" autoplay loop muted playsinline aria-label="Citação"></video></div>
+    <div class="preview-text">
+      <p>Citação de uma pessoa, empresa ou afins, acompanhada da foto da pessoa (ou
+        do elemento) citada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 002 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">02</span></div>
+  <h2 class="section-title">Introdução de Módulo / Slide</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_002.mp4" autoplay loop muted playsinline aria-label="Introdução de módulo"></video></div>
+    <div class="preview-text">
+      <p>Utilizada para introdução de módulos ou como padrão para slides —
+        informações em forma de texto e grifos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 003 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">03</span></div>
+  <h2 class="section-title">Texto-Cabeça com Ilustrações</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_003.mp4" autoplay loop muted playsinline aria-label="Texto-cabeça com ilustrações"></video></div>
+    <div class="preview-text">
+      <p>Texto-cabeça com ilustrações, usado para introdução de assuntos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 004 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">04</span></div>
+  <h2 class="section-title">Exemplificação com Ilustração</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_004.mp4" autoplay loop muted playsinline aria-label="Exemplificação com ilustração"></video></div>
+    <div class="preview-text">
+      <p>Exemplificação, com ilustração, de um assunto sendo comentado — acompanhada
+        de auxílio visual com elementos, ilustrações e textos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 005 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">05</span></div>
+  <h2 class="section-title">Gráfico de Porcentagem</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_005.mp4" autoplay loop muted playsinline aria-label="Gráfico de porcentagem"></video></div>
+    <div class="preview-text">
+      <p>Exemplificação de gráfico com porcentagem e informação de textos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 006 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">06</span></div>
+  <h2 class="section-title">Gráfico de Dados</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_006.mp4" autoplay loop muted playsinline aria-label="Gráfico de dados"></video></div>
+    <div class="preview-text">
+      <p>Exemplificação de gráfico de dados com números e informação de textos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 007 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">07</span></div>
+  <h2 class="section-title">Lista</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_007.mp4" autoplay loop muted playsinline aria-label="Lista"></video></div>
+    <div class="preview-text">
+      <p>Exemplificação em forma de lista.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW 008 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">08</span></div>
+  <h2 class="section-title">Gráfico de Linhas e Curvas</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_008.mp4" autoplay loop muted playsinline aria-label="Gráfico de linhas e curvas"></video></div>
+    <div class="preview-text">
+      <p>Exemplificação de gráfico em linhas e curvas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW SHAKING 1 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">09</span></div>
+  <h2 class="section-title">Movimentação de Câmera — Exemplo 1</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_COM_SHAKING_1.mp4" autoplay loop muted playsinline aria-label="movimentação de câmera"></video></div>
+    <div class="preview-text">
+      <p>Exemplo de movimentação de câmera (shaking) aplicada aos gráficos, para dar
+        dinamismo à apresentação dos dados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREVIEW SHAKING 2 -->
+<section class="slide preview">
+  <div class="pg-header"><span class="eyebrow">Elementos</span><span class="pg-num">10</span></div>
+  <h2 class="section-title">Movimentação de Câmera — Exemplo 2</h2>
+  <div class="preview-body">
+    <div class="preview-media"><video src="videos/PREVIEW_COM_SHAKING_2.mp4" autoplay loop muted playsinline aria-label="movimentação de câmera"></video></div>
+    <div class="preview-text">
+      <p>Segundo exemplo de movimentação de câmera (shaking) sobre os gráficos —
+        variação de ritmo e intensidade em relação ao exemplo anterior.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROMPT — ILUSTRAÇÕES SEM COR -->
+<section class="slide prompt">
+  <div class="pg-header"><span class="eyebrow">Ilustrações</span><span class="pg-num">11</span></div>
+  <h2 class="section-title">Prompt — Ilustrações sem cor</h2>
+  <p class="lead wide">Use este prompt em qualquer gerador de imagem por I.A. para criar as ilustrações
+    em grafite (preto, branco e cinza). Copie o texto no botão abaixo.</p>
+  <div class="prompt-body">
+    <div class="prompt-col">
+      <div class="code-head">
+        <span class="lbl">Prompt sem cor</span>
+        <button class="copy-btn" data-target="code-sem-cor">Copiar</button>
+      </div>
+      <pre class="code-box" id="code-sem-cor">STYLE
+- Hand-drawn pencil/graphite sketch only. Visible hatching, organic strokes, soft shading.
+- No vector look, no hard outlines, no crisp geometric lines, no sharp cutouts.
+
+COLOR
+- Black, white, and shades of grey only. No color of any kind: no reds, greens, blues, yellows, no tints, no accents, no hues anywhere.
+- Exception: if the subject is a logo that is intrinsically defined by color, keep its core colors but render in sketch texture. Never place a logo on a black or checkerboard background.
+
+BACKGROUND
+- Pure white, clean.
+- No grey, no shadow, no gradient, no texture.
+- No scenery, walls, environment, landscape, or decorative background elements.
+- Never use a fake transparency checkerboard.
+
+COMPOSITION
+- 16:9 horizontal widescreen.
+- One isolated central element (the main object, person, or concept).
+- Simple and clear, generous white space, minimal extra detail. Good visual readability.
+
+TEXT
+- No text of any kind: no words, letters, numbers, labels, captions, signage, acronyms, or written symbols.
+- For logos, reinterpret the idea as a visual symbol, not as text.
+
+MONEY
+- Always depict money as Brazilian Real banknotes.
+
+OUTPUT
+- One image per prompt.
+
+FILE NAMING
+- Pattern: PH##_V#_[short-slug].png
+  PH## = zero-padded placeholder number (PH01-PH16)
+  V#   = variation number (V1, V2, V3)
+  slug = lowercase, hyphen-separated, 2-4 words describing the central element (no spaces, no special characters)
+- Examples: PH01_V1_padlock-coins.png / PH01_V2_piggy-bank-arrow.png / PH06_V1_tilted-scale.png / PH16_V3_scale-land-coins.png</pre>
+    </div>
+    <div class="prompt-aside">
+      <div class="aside-img"><img src="assets/exemplo-ilustracao.png" alt="Exemplo de ilustração gerada em grafite"></div>
+      <p class="aside-note">Acima: o prompt de estilo aplicado gera a ilustração em grafite.
+        A I.A. usada pode ser qualquer uma.</p>
+      <p class="aside-note"><strong>Removendo o fundo:</strong> use o <strong>Luma Key</strong>
+        no Premiere ou o <strong>Photoshop</strong> para isolar a ilustração do fundo branco.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROMPT — ILUSTRAÇÕES COM COR -->
+<section class="slide prompt">
+  <div class="pg-header"><span class="eyebrow">Ilustrações</span><span class="pg-num">12</span></div>
+  <h2 class="section-title">Prompt — Ilustrações com cor</h2>
+  <p class="lead wide">Quando a ilustração precisar manter as cores originais (ex.: logos coloridos),
+    use este prompt. Copie o texto no botão abaixo.</p>
+  <div class="prompt-body">
+    <div class="prompt-col">
+      <div class="code-head">
+        <span class="lbl">Prompt com cor</span>
+        <button class="copy-btn" data-target="code-com-cor">Copiar</button>
+      </div>
+      <pre class="code-box" id="code-com-cor">COLOR IMAGE GENERATION GUIDELINES (apply to every image, always)
+
+COLOR
+- Preserve the original color palette when recreating a logo or colored symbol. Match the reference.
+- Do not convert to black-and-white unless specifically requested.
+- Do not add new colors.
+
+STYLE
+- Hand-drawn look: colored pencil, crayon, marker, or rough sketch shading.
+- Color must have visible texture, not flat vector fill.
+- No shadows, 3D effects, gradients, glow, or glossy effects. Do not overcomplicate the design.
+
+BACKGROUND
+- Pure white, clean.
+- No grey, no gradient, no texture, no shadowy backdrop.
+- If the source image has a black background, ignore it. Do not reproduce it.
+- Never use a checkerboard or fake transparency (no grey squares simulating alpha).
+
+COMPOSITION
+- 16:9 layout unless another format is requested.
+- Main object centered or cleanly positioned, with enough white space around it.
+- One isolated element. No extra scenery, props, frames, or decorative elements.
+- Keep it simple and polished.
+
+FIDELITY
+- For logos, preserve the main shape, layout, proportions, and visual identity.
+- Result should be a sketch-textured version of the original, not a redesign.
+
+TEXT (depends on request)
+- Concept illustrations: no words, letters, or numbers.
+- Logo recreations: text may remain if it is part of the logo.
+- Exception: if I ask for "standard rules," remove text and produce a symbolic version instead.
+
+OUTPUT
+- One image per prompt.</pre>
+    </div>
+    <div class="prompt-aside">
+      <div class="aside-img"><img src="assets/exemplo-ilustracao.png" alt="Exemplo de ilustração gerada"></div>
+      <p class="aside-note">Mesmo fluxo do prompt sem cor, mas preservando as cores originais
+        do elemento de referência.</p>
+      <p class="aside-note"><strong>Removendo o fundo:</strong> use o <strong>Luma Key</strong>
+        no Premiere ou o <strong>Photoshop</strong> para isolar a ilustração do fundo branco.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENCERRAMENTO -->
+<section class="slide closing">
+  <div class="logo"><img src="assets/auvp-logo.png" alt="AUVP"></div>
+  <a class="materials-btn" href="https://drive.google.com/drive/folders/1U8QsqP05GXN6E3txdffQwwBLE8LmKbBT?usp=sharing" target="_blank" rel="noopener">Clique aqui para acessar os materiais</a>
+</section>
+
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.dataset.target);
+    var text = el ? el.textContent : '';
+    var done = function(){
+      var original = 'Copiar';
+      btn.textContent = 'Copiado!';
+      btn.classList.add('copied');
+      setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 1800);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(text); done(); });
+    } else { fallback(text); done(); }
+  });
+});
+function fallback(text){
+  var ta=document.createElement('textarea');
+  ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); }catch(e){}
+  document.body.removeChild(ta);
+}
+</script>
+<script>
+// Reforço de autoplay: garante que os vídeos toquem em loop assim que possível
+document.querySelectorAll('.preview-media video').forEach(function(v){
+  v.muted = true;               // navegadores só permitem autoplay se estiver mudo
+  v.setAttribute('muted','');
+  var tryPlay = function(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } };
+  tryPlay();
+  v.addEventListener('canplay', tryPlay, { once:true });
+  v.addEventListener('loadeddata', tryPlay, { once:true });
+});
+</script>
+</body>
+</html>
