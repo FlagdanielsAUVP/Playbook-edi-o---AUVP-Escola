@@ -130,6 +130,23 @@ body{
 .note-shot-cap{color:var(--branco-suave);font-size:.85rem;line-height:1.4;margin-top:.6rem;text-align:left}
 .closing .materials-btn{margin-top:2.2rem}
 
+/* ---------- Slide de AULA em vídeo ---------- */
+.slide.lesson{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:5%}
+.lesson-title{color:var(--amarelo);font-weight:800;font-size:1.1rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
+.lesson-lead{color:var(--branco-suave);font-weight:500;font-size:1.05rem;line-height:1.5;max-width:78%;margin-bottom:1.4rem}
+.lesson-shot{
+  width:100%;max-width:760px;border-radius:10px;overflow:hidden;
+  border:1.5px solid rgba(255,255,255,.15);
+  box-shadow:0 0 34px rgba(20,120,60,.25);background:#000;align-self:center;
+}
+.lesson-shot img{width:100%;display:block}
+.lesson-btn{align-self:center;margin-top:1.6rem}
+.lesson-btn::before{
+  /* ícone de play no lugar da pasta */
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+}
+
 /* ---------- Encerramento ---------- */
 .slide.closing{align-items:center;justify-content:center;
   background:radial-gradient(120% 120% at 50% 50%, rgba(6,50,30,.7) 0%, #041a10 60%, #000 100%)}
@@ -172,6 +189,14 @@ body{
   <div class="note-shot"><img src="assets/premiere-projeto-timeline.png" alt="Gerenciador de projeto e timeline no Premiere"></div>
   <p class="note-shot-cap">Organização do projeto no Premiere: pastas de sequências, arquivos e MOVs (à esquerda) e a timeline com os elementos e sequências (à direita).</p>
   <a class="materials-btn" href="https://drive.google.com/drive/folders/1U8QsqP05GXN6E3txdffQwwBLE8LmKbBT?usp=sharing" target="_blank" rel="noopener">Clique aqui para acessar os materiais</a>
+</section>
+
+<!-- AULA EM VÍDEO -->
+<section class="slide lesson">
+  <div class="lesson-title">Aula em vídeo</div>
+  <p class="lesson-lead">Assista à aula completa mostrando como editar um motion da AUVP Escola, do projeto à finalização.</p>
+  <div class="lesson-shot"><img src="assets/aula-como-editar-motion.jpg" alt="Aula: como editar um motion da AUVP Escola no Premiere"></div>
+  <a class="materials-btn lesson-btn" href="https://drive.google.com/drive/folders/1ZkLwMur0NiJdNbNwfnkqdwYAyCchR0aS?usp=drive_link" target="_blank" rel="noopener">Assistir Aula</a>
 </section>
 
 <!-- PREVIEW 001 -->
@@ -446,14 +471,12 @@ function fallback(text){
 }
 </script>
 <script>
-// Reforço de autoplay: garante que os vídeos toquem em loop assim que possível
 document.querySelectorAll('.preview-media video').forEach(function(v){
-  v.muted = true;               // navegadores só permitem autoplay se estiver mudo
-  v.setAttribute('muted','');
-  var tryPlay = function(){ var p = v.play(); if(p && p.catch){ p.catch(function(){}); } };
+  v.muted=true; v.setAttribute('muted','');
+  var tryPlay=function(){var p=v.play(); if(p&&p.catch){p.catch(function(){});}};
   tryPlay();
-  v.addEventListener('canplay', tryPlay, { once:true });
-  v.addEventListener('loadeddata', tryPlay, { once:true });
+  v.addEventListener('canplay',tryPlay,{once:true});
+  v.addEventListener('loadeddata',tryPlay,{once:true});
 });
 </script>
 </body>
