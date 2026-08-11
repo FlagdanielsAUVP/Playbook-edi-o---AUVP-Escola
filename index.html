@@ -147,6 +147,25 @@ body{
   mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
 }
 
+/* ---------- Comparativo de Identidade Visual ---------- */
+.slide.compare{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:5%}
+.compare-title{color:var(--amarelo);font-weight:800;font-size:1.1rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
+.compare-lead{color:var(--branco-suave);font-weight:500;font-size:1.02rem;line-height:1.55;max-width:94%;margin-bottom:1.6rem}
+.compare-lead strong{color:var(--amarelo)}
+.compare-grid{display:flex;gap:1.6rem;align-items:stretch;width:100%;flex:1;min-height:0}
+.compare-card{flex:1;display:flex;flex-direction:column;min-height:0}
+.compare-tag{display:inline-flex;align-self:flex-start;align-items:center;font-weight:800;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:.35rem .85rem;border-radius:999px;margin-bottom:.75rem}
+.compare-tag.old{background:rgba(255,255,255,.12);color:var(--branco-suave)}
+.compare-tag.new{background:var(--amarelo);color:#111}
+.compare-media{width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000;
+  border:1.5px solid rgba(255,255,255,.15);box-shadow:0 0 30px rgba(20,120,60,.22);
+  display:flex;align-items:center;justify-content:center}
+.compare-card.new .compare-media{border-color:rgba(254,193,50,.55);box-shadow:0 0 34px rgba(254,193,50,.28)}
+.compare-media img{width:100%;height:100%;object-fit:contain;display:block}
+.compare-cap{color:var(--branco-suave);font-size:.86rem;line-height:1.45;margin-top:.7rem}
+.compare-arrow{display:flex;align-items:center;color:var(--amarelo);font-size:1.9rem;font-weight:800;flex:0 0 auto;align-self:center}
+@media(max-width:760px){.compare-grid{flex-direction:column}.compare-arrow{transform:rotate(90deg);align-self:center}}
+
 /* ---------- Encerramento ---------- */
 .slide.closing{align-items:center;justify-content:center;
   background:radial-gradient(120% 120% at 50% 50%, rgba(6,50,30,.7) 0%, #041a10 60%, #000 100%)}
@@ -197,6 +216,28 @@ body{
   <p class="lesson-lead">Assista à aula completa mostrando como editar um motion da AUVP Escola, do projeto à finalização.</p>
   <div class="lesson-shot"><img src="assets/aula-como-editar-motion.jpg" alt="Aula: como editar um motion da AUVP Escola no Premiere"></div>
   <a class="materials-btn lesson-btn" href="https://drive.google.com/drive/folders/1ZkLwMur0NiJdNbNwfnkqdwYAyCchR0aS?usp=drive_link" target="_blank" rel="noopener">Assistir Aula</a>
+</section>
+
+<!-- COMPARATIVO IDENTIDADE VISUAL -->
+<section class="slide compare">
+  <div class="compare-title">Identidade Visual — Antiga × Nova</div>
+  <p class="compare-lead">Nas pastas de materiais serão enviados os slides de aula já montados com o conteúdo, no
+    <strong>modelo antigo</strong> (à esquerda). Esses slides deverão ser <strong>atualizados para a nova
+    identidade visual</strong> (à direita): em vez do card preto em tela cheia, o título entra em destaque
+    com marca-texto e as informações da aula viram um lower-third sobre a própria imagem.</p>
+  <div class="compare-grid">
+    <div class="compare-card old">
+      <span class="compare-tag old">Identidade antiga</span>
+      <div class="compare-media"><img src="assets/id-visual-antiga.png" alt="Identidade visual antiga — slide preto em tela cheia"></div>
+      <p class="compare-cap">Card preto em tela cheia, com título e informações da aula ocupando todo o quadro.</p>
+    </div>
+    <div class="compare-arrow">→</div>
+    <div class="compare-card new">
+      <span class="compare-tag new">Nova identidade</span>
+      <div class="compare-media"><img src="assets/id-visual-nova.png" alt="Nova identidade visual — lower-third sobre a imagem"></div>
+      <p class="compare-cap">Título em destaque (marca-texto) e informações da aula como lower-third sobre a imagem/vídeo.</p>
+    </div>
+  </div>
 </section>
 
 <!-- PREVIEW 001 -->
