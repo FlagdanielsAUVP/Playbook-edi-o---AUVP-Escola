@@ -147,6 +147,50 @@ body{
   mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
 }
 
+/* ---------- REGRAS ---------- */
+.slide.rules-index{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:5%;
+  background:radial-gradient(120% 120% at 50% 50%, rgba(6,50,30,.7) 0%, #041a10 60%, #000 100%)}
+.rules-lead{color:var(--branco-suave);font-weight:500;font-size:1rem;line-height:1.5;max-width:80%;margin-bottom:1.8rem}
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 1.6rem;width:100%}
+.rule-item{display:flex;gap:.9rem;align-items:flex-start}
+.rule-num{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;background:var(--amarelo);color:#111;
+  font-weight:900;font-size:.95rem}
+.rule-item p{color:var(--branco);font-weight:600;font-size:.98rem;line-height:1.45;padding-top:.35rem}
+.rule-item p strong{color:var(--amarelo)}
+
+.slide.rule{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:5%}
+.rule-badge{display:inline-flex;align-items:center;gap:.6rem;background:var(--amarelo);color:#111;
+  font-weight:900;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:.35rem .9rem;border-radius:999px;margin-bottom:.9rem}
+.rule-title{color:var(--branco);font-weight:800;font-size:1.5rem;letter-spacing:.06em;
+  text-transform:uppercase;line-height:1.25;margin-bottom:.7rem;max-width:92%}
+.rule-lead{color:var(--branco-suave);font-weight:500;font-size:.98rem;line-height:1.5;max-width:88%;margin-bottom:1.1rem}
+.rule-lead strong{color:var(--amarelo)}
+.rule-shot{width:100%;max-width:660px;border-radius:10px;overflow:hidden;
+  border:1.5px solid rgba(254,193,50,.45);box-shadow:0 0 34px rgba(254,193,50,.2);
+  background:#000;align-self:center}
+.rule-shot img{width:100%;display:block}
+.rule-cap{color:var(--branco-suave);font-size:.85rem;line-height:1.45;margin-top:.6rem;align-self:center;
+  max-width:660px;text-align:center}
+
+.slide.rule-text{justify-content:center;
+  background:radial-gradient(120% 120% at 50% 50%, rgba(6,50,30,.7) 0%, #041a10 60%, #000 100%)}
+.rule-text-grid{display:flex;gap:2rem;width:100%;align-items:stretch}
+.rule-card{flex:1;background:var(--verde-card);border:1px solid rgba(254,193,50,.28);
+  border-radius:12px;padding:2rem 1.8rem;display:flex;flex-direction:column;gap:.9rem}
+.rule-card .rule-num{margin-bottom:.2rem}
+.rule-card h3{color:var(--amarelo);font-weight:800;font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.rule-card p{color:var(--branco-suave);font-weight:500;font-size:.95rem;line-height:1.6}
+.rule-card ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.rule-card li{color:var(--branco-suave);font-size:.92rem;line-height:1.45;padding-left:1.1rem;position:relative}
+.rule-card li::before{content:"";position:absolute;left:0;top:.5em;width:6px;height:6px;
+  border-radius:50%;background:var(--amarelo)}
+@media(max-width:760px){
+  .rules-grid{grid-template-columns:1fr}
+  .rule-text-grid{flex-direction:column}
+}
+
 /* ---------- Comparativo de Identidade Visual ---------- */
 .slide.compare{align-items:flex-start;justify-content:flex-start;text-align:left;padding-top:5%}
 .compare-title{color:var(--amarelo);font-weight:800;font-size:1.1rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:1rem}
@@ -216,6 +260,107 @@ body{
   <p class="lesson-lead">Assista à aula completa mostrando como editar um motion da AUVP Escola, do projeto à finalização.</p>
   <div class="lesson-shot"><img src="assets/aula-como-editar-motion.jpg" alt="Aula: como editar um motion da AUVP Escola no Premiere"></div>
   <a class="materials-btn lesson-btn" href="https://drive.google.com/drive/folders/1ZkLwMur0NiJdNbNwfnkqdwYAyCchR0aS?usp=drive_link" target="_blank" rel="noopener">Assistir Aula</a>
+</section>
+
+<!-- REGRAS — ÍNDICE -->
+<section class="slide rules-index">
+  <div class="pg-header"><span class="eyebrow">Regras</span><span class="pg-num">R</span></div>
+  <h2 class="section-title">Regras de edição</h2>
+  <p class="rules-lead">Antes de aplicar qualquer template, confira estas seis regras. Elas valem para
+    <strong>todas</strong> as aulas da AUVP Escola, sem exceção. Nas próximas páginas cada uma
+    aparece com o exemplo visual de referência.</p>
+  <div class="rules-grid">
+    <div class="rule-item"><span class="rule-num">1</span>
+      <p>Este é o <strong>formato correto</strong> de introdução de módulos.</p></div>
+    <div class="rule-item"><span class="rule-num">2</span>
+      <p>Todos os <strong>textos-cabeça</strong> são em <strong>CAIXA ALTA</strong>.</p></div>
+    <div class="rule-item"><span class="rule-num">3</span>
+      <p>Usar exatamente <strong>esse marcador</strong> e manter marcadores e textos
+        <strong>retos, sem distorções</strong>.</p></div>
+    <div class="rule-item"><span class="rule-num">4</span>
+      <p>Em nenhuma hipótese <strong>erro de português</strong>.</p></div>
+    <div class="rule-item"><span class="rule-num">5</span>
+      <p>Não pode passar nenhum <strong>erro de informação</strong>.</p></div>
+    <div class="rule-item"><span class="rule-num">6</span>
+      <p>Manchetes são colocadas no <strong>centro inferior</strong>, abaixo do apresentador.</p></div>
+  </div>
+</section>
+
+<!-- REGRA 01 -->
+<section class="slide rule">
+  <div class="pg-header"><span class="eyebrow">Regras</span><span class="pg-num">R1</span></div>
+  <span class="rule-badge">Regra 01</span>
+  <h2 class="rule-title">Este é o formato correto de introdução de módulos</h2>
+  <p class="rule-lead">Título do módulo em <strong>caixa alta sobre o marca-texto amarelo</strong> e,
+    logo abaixo, o subtexto de descrição em branco com o grifo amarelo na palavra-chave.
+    Bloco alinhado à direita do quadro, sem cobrir o apresentador.</p>
+  <div class="rule-shot"><img src="assets/regra-01-intro-modulo.jpg" alt="Formato correto de introdução de módulo: título em marca-texto e subtexto abaixo"></div>
+  <p class="rule-cap">Não substituir por card preto em tela cheia nem alterar a hierarquia entre título e subtexto.</p>
+</section>
+
+<!-- REGRA 02 -->
+<section class="slide rule">
+  <div class="pg-header"><span class="eyebrow">Regras</span><span class="pg-num">R2</span></div>
+  <span class="rule-badge">Regra 02</span>
+  <h2 class="rule-title">Todos os textos-cabeça são em caixa alta</h2>
+  <p class="rule-lead">Sem exceção: todo texto-cabeça entra em <strong>CAIXA ALTA</strong>, dentro do
+    marca-texto amarelo. Vale para telas de ilustração, gráficos, listas e aberturas de assunto.</p>
+  <div class="rule-shot"><img src="assets/regra-02-caixa-alta.jpg" alt="Texto-cabeça em caixa alta sobre marca-texto amarelo"></div>
+  <p class="rule-cap">Nada de caixa baixa, versalete ou capitalização mista no texto-cabeça.</p>
+</section>
+
+<!-- REGRA 03 -->
+<section class="slide rule">
+  <div class="pg-header"><span class="eyebrow">Regras</span><span class="pg-num">R3</span></div>
+  <span class="rule-badge">Regra 03</span>
+  <h2 class="rule-title">Usar exatamente esse marcador — sempre reto, sem distorções</h2>
+  <p class="rule-lead">O marca-texto é <strong>sempre o mesmo</strong>, do projeto do Premiere. Marcador e
+    texto ficam <strong>na horizontal</strong>: sem rotação, sem inclinação, sem escala não proporcional
+    e sem esticar em um eixo só.</p>
+  <div class="rule-shot"><img src="assets/regra-03-marcador.jpg" alt="Marcador padrão aplicado reto, sem distorções"></div>
+  <p class="rule-cap">Ao redimensionar, mantenha a proporção travada e a rotação em 0°.</p>
+</section>
+
+<!-- REGRAS 04 e 05 -->
+<section class="slide rule-text">
+  <div class="pg-header"><span class="eyebrow">Regras</span><span class="pg-num">R4 · R5</span></div>
+  <h2 class="section-title">Revisão obrigatória</h2>
+  <div class="rule-text-grid">
+    <div class="rule-card">
+      <span class="rule-num">4</span>
+      <h3>Em nenhuma hipótese erro de português</h3>
+      <p>Todo texto que entra na tela é revisado antes de renderizar. Erro de digitação em tela
+        queima a credibilidade da aula inteira.</p>
+      <ul>
+        <li>Confira acentuação, crase e concordância.</li>
+        <li>Atenção a nomes próprios, siglas e nomes de empresas.</li>
+        <li>Releia o texto no quadro final, não só no painel de edição.</li>
+      </ul>
+    </div>
+    <div class="rule-card">
+      <span class="rule-num">5</span>
+      <h3>Não pode passar nenhum erro de informação</h3>
+      <p>Números, datas, percentuais e nomes precisam bater exatamente com o que o apresentador
+        fala e com a fonte original.</p>
+      <ul>
+        <li>Confira valores, percentuais e datas na fonte.</li>
+        <li>Gráficos e listas devem refletir o dado correto.</li>
+        <li>Na dúvida, confirme antes de subir a versão final.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REGRA 06 -->
+<section class="slide rule">
+  <div class="pg-header"><span class="eyebrow">Regras</span><span class="pg-num">R6</span></div>
+  <span class="rule-badge">Regra 06</span>
+  <h2 class="rule-title">Manchetes vão no centro inferior, abaixo do apresentador</h2>
+  <p class="rule-lead">A manchete entra <strong>centralizada na parte inferior do quadro</strong>,
+    abaixo do apresentador — nunca sobre o rosto, nunca nas laterais ou no topo.
+    Mantenha título e linha de apoio no mesmo bloco.</p>
+  <div class="rule-shot"><img src="assets/regra-06-manchete.jpg" alt="Manchete posicionada no centro inferior do quadro, abaixo do apresentador"></div>
+  <p class="rule-cap">Posição fixa: o bloco da manchete não muda de lugar entre uma aula e outra.</p>
 </section>
 
 <!-- COMPARATIVO IDENTIDADE VISUAL -->
